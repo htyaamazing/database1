@@ -21,7 +21,7 @@
                         登陆
                     </el-button>
 
-                  <el-button type="info" @click="register">注册</el-button>
+                  <el-button type="info" @click="forget">忘记密码？</el-button>
 
                 </el-form-item>
 
@@ -42,13 +42,13 @@ export default {
       loginFormRules: {
 
         username: [
-          { required: true, message: 'input your id', trigger: 'blur' },
-          { min: 3, max: 10, message: 'length is not legal', trigger: 'blur' }
+          { required: true, message: '请输入您的ID', trigger: 'blur' },
+          { min: 3, max: 10, message: 'ID错误，请输入正确的ID！', trigger: 'blur' }
         ],
 
         password: [
-          { required: true, message: 'input your password', trigger: 'blur' },
-          { min: 6, max: 15, message: 'length is not legal', trigger: 'blur' }
+          { required: true, message: '请输入您的密码', trigger: 'blur' },
+          { min: 6, max: 15, message: '密码错误，请输入正确的密码！', trigger: 'blur' }
         ]
       }
     }
@@ -56,8 +56,24 @@ export default {
 
   methods: {
 
-    register () {
-      this.$router.push('/register')
+    forget () {
+      this.$router.push('/forget')
+      // this.$prompt('请输入您的账号', '提示', {
+      //   confirmButtonText: '发送验证码',
+      //   cancelButtonText: '取消',
+      //   inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]/,
+      //   inputErrorMessage: '账号不正确，请输入正确账号！'
+      // }).then(() => {
+      //   this.$message({
+      //     type: 'success',
+      //     message: '已向您的邮箱成功发送验证码！'
+      //   })
+      // }).catch(() => {
+      //   this.$message({
+      //     type: 'info',
+      //     message: '取消输入'
+      //   })
+      // })
     },
 
     goHome () {
